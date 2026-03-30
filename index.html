@@ -413,30 +413,13 @@
         }
 
         /* The container holding the cards */
-.edu-row {
-    display: flex;
-    flex-direction: row; /* Aligns items horizontally */
-    gap: 20px;           /* Space between cards */
-    justify-content: center; /* Centers cards if they don't fill the width */
-    flex-wrap: wrap;     /* Allows cards to move to next line on small screens */
-}
-
-/* Individual card styling */
-.edu-card {
-    flex: 1;            /* Makes all cards equal width */
-    min-width: 300px;   /* Prevents cards from getting too squashed */
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-/* Responsive adjustment for mobile */
-@media (max-width: 768px) {
-    .edu-card {
-        flex: 1 1 100%; /* Cards will stack on top of each other on mobile */
-    }
-}
+        .edu-row {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
         
         /* Certifications Section */
         .certs-container {
@@ -534,6 +517,41 @@
         .edu-content p {
             color: var(--light);
             margin-top: 15px;
+        }
+        
+        /* Research Section */
+        .pdf-container {
+            background: linear-gradient(145deg, rgba(17, 34, 64, 0.7), rgba(10, 25, 47, 0.5));
+            border-radius: 10px;
+            padding: 30px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            transition: var(--transition);
+            margin-top: 30px;
+        }
+        
+        .pdf-container:hover {
+            transform: translateY(-5px);
+            border-color: rgba(100, 255, 218, 0.3);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+        }
+        
+        .pdf-viewer {
+            width: 100%;
+            height: 800px;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .pdf-download {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .pdf-download .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
         
         /* Contact Section */
@@ -782,6 +800,10 @@
             .projects-grid, .certs-container, .edu-container {
                 grid-template-columns: 1fr;
             }
+            
+            .pdf-viewer {
+                height: 500px;
+            }
         }
     </style>
 </head>
@@ -796,6 +818,7 @@
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#research">Research</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -866,7 +889,7 @@
                             <i class="fas fa-graduation-cap"></i>
                             <i class="fas fa-brain"></i>
                         </div>
-                        <div class="prgoject-links">
+                        <div class="project-links">
                             <a href="https://github.com/akashkhan786/Brain-Tumor-Detection-System-with-Ai-Chatbot-and-suggested-hospitals"><i class="fab fa-github"></i></a>
                             <a href="https://github.com/akashkhan786/Brain-Tumor-Detection-System-with-Ai-Chatbot-and-suggested-hospitals/tree/main/thesis"><i class="fas fa-file-pdf"></i></a>
                         </div>
@@ -880,8 +903,6 @@
                         <span class="tech-item">Python</span>
                         <span class="tech-item">Medical Imaging</span>
                         <span class="tech-item">Frameworks: PyTorch, TensorFlow, HuggingFace, LangChain, OpenAI API, OpenCV</span>
-
-                        
                     </div>
                 </div>
                 
@@ -921,7 +942,7 @@
                     <h3>Web Development Projects</h3>
                     <p>Created multiple responsive websites using modern web technologies. Projects include e-commerce platforms, portfolio sites, and interactive web applications.</p>
                     <div class="project-tech">
-                        <span class="tech-item">HTML/CSS/Thailwind/</span>
+                        <span class="tech-item">HTML/CSS/Tailwind</span>
                         <span class="tech-item">JavaScript</span>
                         <span class="tech-item">Flask</span>
                         <span class="tech-item">Bootstrap</span>
@@ -932,243 +953,237 @@
         </div>
     </section>
 
- <section id="education">
-    <div class="container">
-        <div class="section-title">
-            <h2>Education</h2>
-            <div class="line"></div>
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+                <div class="line"></div>
+            </div>
+            <div class="edu-row">
+                <div class="edu-card">
+                    <div class="edu-header">
+                        <div class="edu-icon"><i class="fas fa-university"></i></div>
+                        <div class="edu-content">
+                            <h3>Abdul Wali Khan University Mardan</h3>
+                            <div class="edu-date">2021 – 2025</div>
+                        </div>
+                    </div>
+                    <p><strong>BS in Computer Science (Software)</strong></p>
+                    <p>CGPA: 3.15 / 4.0 (78%)</p>
+                    <p><small><strong>Courses:</strong> AI, Neural Networks, Computer Vision, DSA, Algorithms.</small></p>
+                </div>
+
+                <div class="edu-card">
+                    <div class="edu-header">
+                        <div class="edu-icon"><i class="fas fa-school"></i></div>
+                        <div class="edu-content">
+                            <h3>The Quaid-e-Azam School & College</h3>
+                            <div class="edu-date">2019 – 2021</div>
+                        </div>
+                    </div>
+                    <p><strong>FSc (Pre-Engineering / CS)</strong></p>
+                    <p>Marks: 824 / 1100 (75%)</p>
+                    <p>Mardan, Pakistan</p>
+                </div>
+
+                <div class="edu-card">
+                    <div class="edu-header">
+                        <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="edu-content">
+                            <h3>Frontier Model School & College</h3>
+                            <div class="edu-date">2017 – 2019</div>
+                        </div>
+                    </div>
+                    <p><strong>Matriculation (Science)</strong></p>
+                    <p>Marks: 839 / 1100 (76%)</p>
+                    <p>Toru, Mardan, Pakistan</p>
+                </div>
+            </div>
         </div>
-
-        <div class="edu-row">
-            <div class="edu-card">
-                <div class="edu-header">
-                    <div class="edu-icon"><i class="fas fa-university"></i></div>
-                    <div class="edu-content">
-                        <h3>Abdul Wali Khan University Mardan</h3>
-                        <div class="edu-date">2021 – 2025</div>
-                    </div>
-                </div>
-                <p><strong>BS in Computer Science (Software)</strong></p>
-                <p>CGPA: 3.15 / 4.0 (78%)</p>
-                <p><small><strong>Courses:</strong> AI, Neural Networks, Computer Vision, DSA, Algorithms.</small></p>
-            </div>
-
-            <div class="edu-card">
-                <div class="edu-header">
-                    <div class="edu-icon"><i class="fas fa-school"></i></div>
-                    <div class="edu-content">
-                        <h3>The Quaid-e-Azam School & College</h3>
-                        <div class="edu-date">2019 – 2021</div>
-                    </div>
-                </div>
-                <p><strong>FSc (Pre-Engineering / CS)</strong></p>
-                <p>Marks: 824 / 1100 (75%)</p>
-                <p>Mardan, Pakistan</p>
-            </div>
-
-            <div class="edu-card">
-                <div class="edu-header">
-                    <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <div class="edu-content">
-                        <h3>Frontier Model School & College</h3>
-                        <div class="edu-date">2017 – 2019</div>
-                    </div>
-                </div>
-                <p><strong>Matriculation (Science)</strong></p>
-                <p>Marks: 839 / 1100 (76%)</p>
-                <p>Toru, Mardan, Pakistan</p>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
     <!-- Certifications Section -->
-   <section id="certifications">
-    <div class="container">
-        <div class="section-title">
-            <h2>Certifications</h2>
-            <div class="line"></div>
-        </div>
-        <div class="certs-container">
-              <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <div class="cert-content">
-                    <h3>AI For Everyone</h3>
-                    <p>DeepLearning.AI | Coursera</p>
-                    <p>Understanding the workflow of AI projects, building AI strategy, and ethical considerations in technology.</p>
-                    <span class="cert-badge">DeepLearning.AI</span>
-                </div>
+    <section id="certifications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications</h2>
+                <div class="line"></div>
             </div>
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fas fa-brain"></i>
+            <div class="certs-container">
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-users"></i></div>
+                    <div class="cert-content">
+                        <h3>AI For Everyone</h3>
+                        <p>DeepLearning.AI | Coursera</p>
+                        <p>Understanding the workflow of AI projects, building AI strategy, and ethical considerations in technology.</p>
+                        <span class="cert-badge">DeepLearning.AI</span>
+                    </div>
                 </div>
-                <div class="cert-content">
-                    <h3>Machine Learning Specialization</h3>
-                    <p>Stanford University & DeepLearning.AI</p>
-                    <p>Comprehensive foundation in machine learning, covering supervised and unsupervised learning techniques.</p>
-                    <span class="cert-badge">Stanford</span>
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-brain"></i></div>
+                    <div class="cert-content">
+                        <h3>Machine Learning Specialization</h3>
+                        <p>Stanford University & DeepLearning.AI</p>
+                        <p>Comprehensive foundation in machine learning, covering supervised and unsupervised learning techniques.</p>
+                        <span class="cert-badge">Stanford</span>
+                    </div>
                 </div>
-            </div>
- <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fas fa-chart-line"></i>
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="cert-content">
+                        <h3>Supervised Machine Learning</h3>
+                        <p>DeepLearning.AI | Coursera</p>
+                        <p>Mastering regression and classification algorithms to build predictive models from labeled data.</p>
+                        <span class="cert-badge">Regression/Classification</span>
+                    </div>
                 </div>
-                <div class="cert-content">
-                    <h3>Supervised Machine Learning</h3>
-                    <p>DeepLearning.AI | Coursera</p>
-                    <p>Mastering regression and classification algorithms to build predictive models from labeled data.</p>
-                    <span class="cert-badge">Regression/Classification</span>
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-layer-group"></i></div>
+                    <div class="cert-content">
+                        <h3>Advanced Learning Algorithms</h3>
+                        <p>DeepLearning.AI | Coursera</p>
+                        <p>Building and training neural networks using TensorFlow for multi-class classification and optimization.</p>
+                        <span class="cert-badge">Neural Networks</span>
+                    </div>
                 </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fas fa-layer-group"></i>
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-network-wired"></i></div>
+                    <div class="cert-content">
+                        <h3>Networking Basics</h3>
+                        <p>Cisco Networking Academy</p>
+                        <p>Foundational knowledge in network protocols, infrastructure, and connectivity troubleshooting.</p>
+                        <span class="cert-badge">Cisco</span>
+                    </div>
                 </div>
-                <div class="cert-content">
-                    <h3>Advanced Learning Algorithms</h3>
-                    <p>DeepLearning.AI | Coursera</p>
-                    <p>Building and training neural networks using TensorFlow for multi-class classification and optimization.</p>
-                    <span class="cert-badge">Neural Networks</span>
-                </div>
-            </div>
-
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fas fa-network-wired"></i>
-                </div>
-                <div class="cert-content">
-                    <h3>Networking Basics</h3>
-                    <p>Cisco Networking Academy</p>
-                    <p>Foundational knowledge in network protocols, infrastructure, and connectivity troubleshooting.</p>
-                    <span class="cert-badge">Cisco</span>
-                </div>
-            </div>
-
-            <div class="cert-card">
-                <div class="cert-icon">
-                    <i class="fas fa-file-alt"></i>
-                </div>
-                <div class="cert-content">
-                    <h3>Quality Improvement & Document Design</h3>
-                    <p>Coursera</p>
-                    <p>Focusing on professional documentation standards and systematic management improvement processes.</p>
-                    <span class="cert-badge">Management</span>
+                <div class="cert-card">
+                    <div class="cert-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="cert-content">
+                        <h3>Quality Improvement & Document Design</h3>
+                        <p>Coursera</p>
+                        <p>Focusing on professional documentation standards and systematic management improvement processes.</p>
+                        <span class="cert-badge">Management</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research">
+        <div class="container">
+            <div class="section-title">
+                <h2>Research Proposal</h2>
+                <div class="line"></div>
+            </div>
+            <div class="pdf-container">
+                <div class="pdf-viewer">
+                    <!-- Replace 'research_proposal.pdf' with your actual PDF file path -->
+                    <iframe src="research_proposal.pdf" width="100%" height="100%" style="border: none; min-height: 700px;"></iframe>
+                </div>
+                <div class="pdf-download">
+                    <a href="research_proposal.pdf" class="btn btn-outline" download>
+                        <i class="fas fa-download"></i> Download Full Research Proposal (PDF)
+                    </a>
+                </div>
+                <p style="text-align: center; margin-top: 20px; color: var(--light-gray);">
+                    <i class="fas fa-info-circle"></i> This research proposal outlines my intended graduate work in Intelligent Fault Diagnosis and Adaptive Maintenance Scheduling using Deep Learning, Explainable AI, and Reinforcement Learning.
+                </p>
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
-  <section id="contact">
-    <div class="container">
-        <div class="section-title">
-            <h2>Get In Touch</h2>
-            <div class="line"></div>
-        </div>
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="contact-card">
-                    <h3 style="margin-bottom: 20px; color: var(--accent);">Contact Information</h3>
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <div class="line"></div>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3 style="margin-bottom: 20px; color: var(--accent);">Contact Information</h3>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-text">
+                                <h3>Email</h3>
+                                <a href="mailto:syedshakeelbacha@gmail.com">syedshakeelbacha@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div class="contact-text">
+                                <h3>Phone</h3>
+                                <a href="tel:+966580453996">+966 58 045 3996</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                            <div class="contact-text">
+                                <h3>WhatsApp</h3>
+                                <a href="https://wa.me/923119688358" target="_blank">+92 311 9688358</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="contact-text">
+                                <h3>Location</h3>
+                                <p>Riyadh, Saudi Arabia</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fab fa-github"></i></div>
+                            <div class="contact-text">
+                                <h3>GitHub</h3>
+                                <a href="https://github.com/akashkhan786" target="_blank">github.com/akashkhan786</a>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                    <div class="contact-card">
+                        <h3 style="margin-bottom: 20px; color: var(--accent);">Professional Links</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-file-pdf"></i></div>
+                            <div class="contact-text">
+                                <h3>Resume</h3>
+                                <a href="Syed_Shakeel_Bacha_CV.pdf" target="_blank" download>Download PDF</a>
+                            </div>
                         </div>
-                        <div class="contact-text">
-                            <h3>Email</h3>
-                            <a href="mailto:syedshakeelbacha@gmail.com">syedshakeelbacha@gmail.com</a>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="contact-text">
+                                <h3>FYP Documentation</h3>
+                                <a href="https://github.com/akashkhan786/Brain-Tumor-Detection-System-with-Ai-Chatbot-and-suggested-hospitals/tree/main/thesis">Brain Tumor Detection System</a>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Phone</h3>
-                            <a href="tel:+966580453996">+966 58 045 3996</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>WhatsApp</h3>
-                            <a href="https://wa.me/923119688358" target="_blank">+92 311 9688358</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Location</h3>
-                            <p>Riyadh, Saudi Arabia</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>GitHub</h3>
-                            <a href="https://github.com/akashkhan786" target="_blank">github.com/akashkhan786</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-card">
-                    <h3 style="margin-bottom: 20px; color: var(--accent);">Professional Links</h3>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-file-pdf"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>Resume</h3>
-                            <a href="Syed_Shakeel_Bacha_CV.pdf"target="_blank" download>Download PDF</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>FYP Documentation</h3>
-                            <a href="https://github.com/akashkhan786/Brain-Tumor-Detection-System-with-Ai-Chatbot-and-suggested-hospitals/tree/main/thesis">Brain Tumor Detection System</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h3>LinkedIn</h3>
-                            <a href="https://www.linkedin.com/in/syed-shakeel-bacha-b88223253" target="_blank">Connect with me</a>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+                            <div class="contact-text">
+                                <h3>LinkedIn</h3>
+                                <a href="https://www.linkedin.com/in/syed-shakeel-bacha-b88223253" target="_blank">Connect with me</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="social-links">
                 <a href="https://github.com/akashkhan786"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/syed-shakeel-bacha-b88223253?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin-in"></i></a>
-
+                <a href="https://www.linkedin.com/in/syed-shakeel-bacha-b88223253"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <div class="copyright">
-                <p>Designed & Built by Syed Shakeel Bacha | &copy; 2024 All Rights Reserved</p>
+                <p>Designed & Built by Syed Shakeel Bacha | &copy; 2025 All Rights Reserved</p>
             </div>
         </div>
     </footer>
@@ -1178,9 +1193,10 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
 
@@ -1199,14 +1215,6 @@
             section.style.transform = "translateY(30px)";
             section.style.transition = "opacity 0.6s ease, transform 0.6s ease";
             observer.observe(section);
-        });
-        
-        // Form submission
-        const form = document.querySelector('form');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            form.reset();
         });
     </script>
 </body>
